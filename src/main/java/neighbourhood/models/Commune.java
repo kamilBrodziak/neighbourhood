@@ -1,4 +1,4 @@
 package neighbourhood.models;
 
-public class VIllageCommune {
+public class Commune {
 }

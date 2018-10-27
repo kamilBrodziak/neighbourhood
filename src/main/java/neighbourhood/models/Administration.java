@@ -1,4 +1,4 @@
 package neighbourhood.models;
 
-public class Community {
+public class Administration {
 }

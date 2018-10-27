@@ -1,7 +1,6 @@
 package neighbourhood.dao;
 
 import neighbourhood.controllers.UnitController;
-import neighbourhood.models.CommunitiesEnum;
 
 import java.util.ArrayList;
 import java.util.Iterator;

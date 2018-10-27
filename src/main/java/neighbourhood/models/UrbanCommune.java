@@ -1,4 +1,4 @@
 package neighbourhood.models;
 
-public class UrbanCommune {
+public class UrbanCommune extends Commune{
 }

@@ -1,7 +1,17 @@
 package neighbourhood.controllers.unitsControllers;
 
-public class CountyController {
+import neighbourhood.models.County;
 
-    public CountyController() {
+import java.util.List;
+
+public class CountyController {
+    private VoivodeshipController voiController;
+
+    public CountyController(VoivodeshipController voiController) {
+        this.voiController = voiController;
+    }
+
+    public void createCounty(List<String> communitySpecifications) {
+        County county = new County();
     }
 }
