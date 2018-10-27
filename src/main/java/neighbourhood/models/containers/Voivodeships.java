@@ -21,6 +21,6 @@ public class Voivodeships implements Administrations {
     }
 
     public void putAdministration(Administration voivodeship) {
-        voivodeshipMap.put(voivodeship.getID(), voivodeship);
+        voivodeshipMap.put(voivodeship.getId(), voivodeship);
     }
 }

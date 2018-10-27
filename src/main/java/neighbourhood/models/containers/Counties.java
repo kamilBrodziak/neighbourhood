@@ -22,6 +22,6 @@ public class Counties implements Administrations {
     }
 
     public void putAdministration(Administration county) {
-        countyMap.put(county.getID(), county);
+        countyMap.put(county.getId(), county);
     }
 }

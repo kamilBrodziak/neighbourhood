@@ -17,7 +17,7 @@ public class VillageCommunes {
     }
 
     public void putCommune(Commune villageCommune) {
-        villageCommuneMap.put(villageCommune.getID(), villageCommune);
+        villageCommuneMap.put(villageCommune.getId(), villageCommune);
     }
 
     public Map<Integer, Commune> getCommuneMap() {

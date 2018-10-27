@@ -1,7 +1,5 @@
 package neighbourhood.models;
 
-import java.util.Map;
-
 public class Administration {
     private final String name;
     private final int id;

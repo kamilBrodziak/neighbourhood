@@ -17,7 +17,7 @@ public class UrbVillCommunes {
     }
 
     public void putCommune(Commune urbVillCommune) {
-        urbVillCommuneMap.put(urbVillCommune.getID(), urbVillCommune);
+        urbVillCommuneMap.put(urbVillCommune.getId(), urbVillCommune);
     }
 
     public Map<Integer, Commune> getCommuneMap() {

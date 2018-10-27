@@ -15,7 +15,7 @@ public class Settlement {
         this.id = builder._ID;
     }
 
-    public int getID() {
+    public int getId() {
         return id;
     }
 
