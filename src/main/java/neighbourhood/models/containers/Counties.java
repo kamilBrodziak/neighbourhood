@@ -7,21 +7,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Counties implements Administrations {
-    public Map<Integer, Administration> administrationMap;
+    public Map<Integer, Administration> countyMap;
 
     public Counties() {
-        administrationMap = new HashMap<Integer, Administration>();
+        countyMap = new HashMap<Integer, Administration>();
     }
 
-    public Administration getAdministrationByID(int ID) {
-        return administrationMap.get(ID);
+    public Administration getAdministrationByID(int id) {
+        return countyMap.get(id);
     }
 
     public Map<Integer, Administration> getAdministrationMap() {
-        return administrationMap;
+        return countyMap;
     }
 
-    public void putAdministration(Administration administration) {
-        administrationMap.put(administration.getID(), administration);
+    public void putAdministration(Administration county) {
+        countyMap.put(county.getID(), county);
     }
 }

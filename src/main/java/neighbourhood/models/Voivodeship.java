@@ -1,25 +1,29 @@
 package neighbourhood.models;
 
+import neighbourhood.models.containers.Counties;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Voivodeship {
-    private String name;
-    private List<County> countyList= new ArrayList<County>();
+public class Voivodeship extends Administration{
+    private Counties counties;
 
-    public Voivodeship(String name) {
-        this.name = name;
+    public Voivodeship(String name, int id) {
+        super(name, id);
+        counties = new Counties();
     }
 
-    public void putCounty(County county) {
-        countyList.add(county);
+    public Counties getCounties() {
+        return counties;
     }
 
-    public String getName() {
-        return name;
+    public Map<Integer, Administration> getCountyMap() {
+        return counties.getAdministrationMap();
     }
 
-    public List<County> getCountyList() {
-        return countyList;
+    public void putCounty(Administration county) {
+        counties.putAdministration(county);
     }
+
 }

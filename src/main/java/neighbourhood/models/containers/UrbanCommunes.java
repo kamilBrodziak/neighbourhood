@@ -16,8 +16,8 @@ public class UrbanCommunes implements Communes{
         return urbanCommuneMap.get(id);
     }
 
-    public void putCommune(Commune commune) {
-        urbanCommuneMap.put(commune.getID(), commune);
+    public void putCommune(Commune urbanCommune) {
+        urbanCommuneMap.put(urbanCommune.getID(), urbanCommune);
     }
 
     public Map<Integer, Commune> getCommuneMap() {

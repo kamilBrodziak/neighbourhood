@@ -6,21 +6,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Voivodeships implements Administrations {
-    public Map<Integer, Administration> administrationMap;
+    public Map<Integer, Administration> voivodeshipMap;
 
     public Voivodeships() {
-        administrationMap = new HashMap<Integer, Administration>();
+        voivodeshipMap = new HashMap<Integer, Administration>();
     }
 
-    public Administration getAdministrationByID(int ID) {
-        return administrationMap.get(ID);
+    public Administration getAdministrationByID(int id) {
+        return voivodeshipMap.get(id);
     }
 
     public Map<Integer, Administration> getAdministrationMap() {
-        return administrationMap;
+        return voivodeshipMap;
     }
 
-    public void putAdministration(Administration administration) {
-        administrationMap.put(administration.getID(), administration);
+    public void putAdministration(Administration voivodeship) {
+        voivodeshipMap.put(voivodeship.getID(), voivodeship);
     }
 }
