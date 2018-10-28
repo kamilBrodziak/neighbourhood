@@ -1,34 +1,29 @@
 package neighbourhood.controllers.unitsControllers;
 
-import neighbourhood.models.County;
+import neighbourhood.models.containers.Voivodeships;
 import neighbourhood.models.Voivodeship;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class VoivodeshipController {
-    private Map<Integer, Voivodeship> voivodeships;
-
+    private Voivodeships voivodeships;
     public VoivodeshipController() {
-        this.voivodeships = new HashMap<Integer, Voivodeship>();
+        this.voivodeships = new Voivodeships();
     }
 
-    public void createVoivodeship(List<String> voivodeshipSpecifications) {
-        int voivodeshipID = Integer.parseInt(voivodeshipSpecifications.get(0));
-        String voivodeshipName = voivodeshipSpecifications.get(1);
-        voivodeships.put(voivodeshipID, new Voivodeship(voivodeshipName));
-    }
-
-    public void putCounty(int voivodeshipID, County county) {
-        voivodeships.get(voivodeshipID).putCounty(county);
-    }
-
-    public Map<Integer, Voivodeship> getVoivodeships() {
+    public Voivodeships getCounties() {
         return voivodeships;
     }
 
-    public Voivodeship getVoivodeship(int voivodeshipID) {
-        return voivodeships.get(voivodeshipID);
+    public Map<String, Voivodeship> getCountyMap() {
+        return voivodeships.getVoivodeshipMap();
+    }
+
+    public Voivodeship getVoivodeshipByName(String name) {
+        return voivodeships.getVoivodeshipByName(name);
+    }
+
+    public void putVoivodeship(Voivodeship voivodeship) {
+        voivodeships.putVoivodeship(voivodeship);
     }
 }

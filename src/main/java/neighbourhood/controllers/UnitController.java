@@ -2,13 +2,12 @@ package neighbourhood.controllers;
 
 import neighbourhood.controllers.unitsControllers.*;
 import neighbourhood.models.CommunityEnum;
-
-import java.util.List;
+import neighbourhood.models.*;
 
 public class UnitController {
     VoivodeshipController voiController;
     CountyController couController;
-    CommuneController communeController;
+    CommuneController commController;
     VillageController villController;
     CityController cityController;
 
@@ -16,7 +15,7 @@ public class UnitController {
     public UnitController() {
         voiController = new VoivodeshipController();
         couController = new CountyController();
-        communeController = new CommuneController();
+        commController = new CommuneController();
         villController = new VillageController();
         cityController = new CityController();
     }
@@ -30,7 +29,7 @@ public class UnitController {
     }
 
     public CommuneController getCommuneController() {
-        return communeController;
+        return commController;
     }
 
     public VillageController getVillController() {
@@ -41,34 +40,26 @@ public class UnitController {
         return cityController;
     }
 
-    public void createUnit(List<String> unitSpecification) {
-        int lastColumn = unitSpecification.size() - 1;
-        CommunityEnum administrationsTypeEnum = CommunityEnum.getAdministrationByName(unitSpecification.get(lastColumn));
-        switch (administrationsTypeEnum) {
-            unitSpecification = unitSpecification.subList(0, lastColumn);
+    public void putUnit(Community community) {
+        CommunityEnum communityType = CommunityEnum.valueOf(community.getClass().getSimpleName());
+        switch (communityType) {
             case VOIVODESHIP:
-                voiController.createVoivodeship(unitSpecification);
+                voiController.putVoivodeship((Voivodeship)community);
+                break;
             case COUNTY:
-                couController.createCounty(unitSpecification);
+                couController.putCounty((County)community);
                 break;
-            case URBANCOMMUNE:
-                urbCommController.createUrbanCommune(unitSpecification);
-                break;
-            case URBVILLCOMMUNE:
-                urbVillComController.createUrbVillCommune(unitSpecification);
-                break;
-            case VILLAGECOMMUNE:
-                villCommController.createVillageCommune(unitSpecification);
-                break;
+
             case CITY:
-                unitSpecification.set(0, voiController.getVoivodeship(Integer.parseInt(unitSpecification.get(0)));
-                unitSpecification.set(1, couController.getCounty(Integer.parseInt(unitSpecification.get(1))));
-                switch ()
-                cityController.createCity(unitSpecification);
+                cityController.putCity((City)community);
                 break;
             case VILLAGE:
-                villController.createVillage(unitSpecification);
+                villController.putVillage((Village) community);
                 break;
+            case URBANCOMMUNE:
+            case URBVILLCOMMUNE:
+            case VILLAGECOMMUNE:
+                commController.putCommune(community);
         }
     }
 

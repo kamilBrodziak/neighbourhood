@@ -4,7 +4,7 @@ import neighbourhood.models.containers.Villages;
 
 import java.util.Map;
 
-public class VillageCommune extends Community {
+public class VillageCommune extends Community{
     private Villages villages;
     private String county;
     private String voivodeship;

@@ -19,6 +19,16 @@ public class Communes {
         villageCommuneMap = new HashMap<String, VillageCommune>();
     }
 
+    public void putCommune(Community commune) {
+        if(commune instanceof UrbanCommune) {
+            putUrbanCommune((UrbanCommune)commune);
+        } else if(commune instanceof UrbVillCommune) {
+            putUrbVillCommune((UrbVillCommune)commune);
+        } else if(commune instanceof VillageCommune) {
+            putVillageCommune((VillageCommune)commune);
+        }
+    }
+
     public void putUrbanCommune(UrbanCommune urbanCommune) {
         urbanCommuneMap.put(urbanCommune.getName(), urbanCommune);
     }

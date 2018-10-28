@@ -5,7 +5,7 @@ import neighbourhood.models.containers.Villages;
 
 import java.util.Map;
 
-public class UrbVillCommune extends Community {
+public class UrbVillCommune extends Community{
     private Cities cities;
     private Villages villages;
     private String county;

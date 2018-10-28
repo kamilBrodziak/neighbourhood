@@ -21,11 +21,12 @@ public class UrbanCommune extends Community{
         return cities;
     }
 
-    public Map<String, City> getCityList() {
+    public Map<String, City> getCityMap() {
         return cities.getCityMap();
     }
 
     public void putCity(City city) {
         cities.putCity(city);
     }
+
 }

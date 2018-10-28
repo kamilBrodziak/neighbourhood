@@ -1,17 +1,29 @@
 package neighbourhood.controllers.unitsControllers;
 
 import neighbourhood.models.County;
+import neighbourhood.models.containers.Counties;
 
-import java.util.List;
+import java.util.Map;
 
 public class CountyController {
-    private VoivodeshipController voiController;
-
-    public CountyController(VoivodeshipController voiController) {
-        this.voiController = voiController;
+    private Counties counties;
+    public CountyController() {
+        this.counties = new Counties();
     }
 
-    public void createCounty(List<String> communitySpecifications) {
-        County county = new County();
+    public Counties getCounties() {
+        return counties;
+    }
+
+    public Map<String, County> getCountyMap() {
+        return counties.getCountyMap();
+    }
+
+    public County getCounty(String name) {
+        return counties.getCountyByName(name);
+    }
+
+    public void putCounty(County county) {
+        counties.putCounty(county);
     }
 }

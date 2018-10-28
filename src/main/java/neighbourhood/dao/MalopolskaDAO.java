@@ -5,9 +5,7 @@ import neighbourhood.models.Community;
 import neighbourhood.models.CommunityEnum;
 import neighbourhood.models.CommunityFactory;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 public class MalopolskaDAO extends VoivodeshipDao {
 
@@ -33,7 +31,7 @@ public class MalopolskaDAO extends VoivodeshipDao {
             communityType = CommunityEnum.getAdministrationByName(communitySpecifications[4]);
 
             community = communityFactory.createCommunity(communityType, communityName);
-            super.getUnitController().createUnit(community);
+            super.getUnitController().putUnit(community);
         }
     }
 
