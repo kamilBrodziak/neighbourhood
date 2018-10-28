@@ -8,14 +8,14 @@ import java.util.Map;
 public class UrbVillCommune extends Community{
     private Cities cities;
     private Villages villages;
-    private String county;
-    private String voivodeship;
+    private String countyName;
+    private String voivodeshipName;
 
 
     public UrbVillCommune(Builder builder) {
         super(builder);
-        this.county = builder._county;
-        this.voivodeship = builder._voivodeship;
+        this.countyName = builder._countyName;
+        this.voivodeshipName = builder._voivodeshipName;
         cities = new Cities();
         villages = new Villages();
     }

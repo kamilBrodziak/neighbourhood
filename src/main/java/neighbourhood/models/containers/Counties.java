@@ -2,7 +2,6 @@ package neighbourhood.models.containers;
 
 
 import neighbourhood.models.County;
-import neighbourhood.models.Village;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -19,6 +19,15 @@ public class CommunityFactory {
                 currCounty = county;
                 ((Voivodeship)currVoivodeship).putCounty((County)county);
                 return county;
+            case COUNTYCITY:
+                Community countyCity = new CountyCity.Builder().withName(name).withVoivodeship(currVoivodeship.getName()).createCommunity();
+                currCounty = countyCity;
+                ((Voivodeship)currVoivodeship).putCountyCity((CountyCity)countyCity);
+                return countyCity;
+            case DELEGACY:
+                Community delegacy = new Delegacy.Builder().withName(name).withVoivodeship(currVoivodeship.getName()).withCounty(currCounty.getName()).createCommunity();
+                ((UrbanCommune) currCommune).putDelegacy((Delegacy) delegacy);
+                return delegacy;
             case URBANCOMMUNE:
                 Community urbanCommune = new UrbanCommune.Builder().withName(name).withCounty(currCounty.getName()).withVoivodeship(currVoivodeship.getName()).createCommunity();
                 currCommune = urbanCommune;

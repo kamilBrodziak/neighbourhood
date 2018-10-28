@@ -6,14 +6,14 @@ import java.util.Map;
 
 public class VillageCommune extends Community{
     private Villages villages;
-    private String county;
-    private String voivodeship;
+    private String countyName;
+    private String voivodeshipName;
 
 
     public VillageCommune(Builder builder) {
         super(builder);
-        this.county = builder._county;
-        this.voivodeship = builder._voivodeship;
+        this.countyName = builder._countyName;
+        this.voivodeshipName = builder._voivodeshipName;
         villages = new Villages();
     }
 

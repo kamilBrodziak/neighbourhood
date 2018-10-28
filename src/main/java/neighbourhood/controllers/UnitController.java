@@ -10,6 +10,8 @@ public class UnitController {
     CommuneController commController;
     VillageController villController;
     CityController cityController;
+    CountyCityController couCityController;
+    DelegacyController deleController;
 
 
     public UnitController() {
@@ -18,6 +20,8 @@ public class UnitController {
         commController = new CommuneController();
         villController = new VillageController();
         cityController = new CityController();
+        couCityController = new CountyCityController();
+        deleController = new DelegacyController();
     }
 
     public VoivodeshipController getVoiController() {
@@ -60,6 +64,13 @@ public class UnitController {
             case URBVILLCOMMUNE:
             case VILLAGECOMMUNE:
                 commController.putCommune(community);
+                break;
+            case COUNTYCITY:
+                couCityController.putCountyCity((CountyCity)community);
+                break;
+            case DELEGACY:
+                deleController.putDelegacy((Delegacy)community);
+                break;
         }
     }
 

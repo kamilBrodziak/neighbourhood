@@ -6,11 +6,11 @@ import java.util.Map;
 
 public class County extends Community{
     private Communes communes;
-    private String voivodeship;
+    private String voivodeshipName;
 
     public County(Builder builder) {
         super(builder);
-        this.voivodeship = builder._voivodeship;
+        this.voivodeshipName = builder._voivodeshipName;
         communes = new Communes();
     }
 

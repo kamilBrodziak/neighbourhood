@@ -14,23 +14,30 @@ public class Community {
     }
 
     public static class Builder {
-        protected String _voivodeship;
-        protected String _county;
-        protected String _commune;
+        protected String _voivodeshipName;
+        protected String _countyName;
+        protected String _communeName;
         protected String _name;
+        protected String _delegacyName;
 
-        public Builder withVoivodeship(String voivodeship) {
-            this._voivodeship = voivodeship;
+        public Builder withVoivodeship(String voivodeshipName) {
+            this._voivodeshipName = voivodeshipName;
             return this;
         }
 
-        public Builder withCounty(String county) {
-            this._county = county;
+        public Builder withCounty(String countyName) {
+            this._countyName = countyName;
             return this;
         }
 
-        public Builder withCommune(String commune) {
-            this._commune = commune;
+
+        public Builder withCommune(String communeName) {
+            this._communeName = communeName;
+            return this;
+        }
+
+        public Builder withDelegacy(String delegacyName) {
+            this._delegacyName = delegacyName;
             return this;
         }
 
@@ -38,6 +45,8 @@ public class Community {
             this._name = _name;
             return this;
         }
+
+
 
         public Community createCommunity() {
             return new Community(this);

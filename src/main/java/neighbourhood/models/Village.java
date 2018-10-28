@@ -1,40 +1,40 @@
 package neighbourhood.models;
 
 public class Village extends Community{
-    private String commune;
-    private String county;
-    private String voivodeship;
+    private String communeName;
+    private String countyName;
+    private String voivodeshipName;
 
 
     public Village(Builder builder) {
         super(builder);
-        this.commune = builder._commune;
-        this.county = builder._county;
-        this.voivodeship = builder._voivodeship;
+        this.communeName = builder._communeName;
+        this.countyName = builder._countyName;
+        this.voivodeshipName = builder._voivodeshipName;
     }
 
-    public String getCommune() {
-        return commune;
+    public String getCommuneName() {
+        return communeName;
     }
 
-    public String getCounty() {
-        return county;
+    public String getCountyName() {
+        return countyName;
     }
 
-    public String getVoivodeship() {
-        return voivodeship;
+    public String getVoivodeshipName() {
+        return voivodeshipName;
     }
 
 
-    public void setCommune(String commune) {
-        this.commune = commune;
+    public void setCommuneName(String communeName) {
+        this.communeName = communeName;
     }
 
-    public void setCounty(String county) {
-        this.county = county;
+    public void setCountyName(String countyName) {
+        this.countyName = countyName;
     }
 
-    public void setVoivodeship(String voivodeship) {
-        this.voivodeship = voivodeship;
+    public void setVoivodeshipName(String voivodeshipName) {
+        this.voivodeshipName = voivodeshipName;
     }
 }
