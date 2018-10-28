@@ -29,8 +29,8 @@ public class MalopolskaDAO extends VoivodeshipDao {
 
         while(docIterator.hasNext()) {
             communitySpecifications = docIterator.next().split(splitLineChar);
-            communityName = communitySpecifications[4];
-            communityType = CommunityEnum.getAdministrationByName(communitySpecifications[5]);
+            communityName = communitySpecifications[3];
+            communityType = CommunityEnum.getAdministrationByName(communitySpecifications[4]);
 
             community = communityFactory.createCommunity(communityType, communityName);
             super.getUnitController().createUnit(community);
