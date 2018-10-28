@@ -4,11 +4,16 @@ import neighbourhood.models.containers.Cities;
 
 import java.util.Map;
 
-public class UrbanCommune extends Commune{
+public class UrbanCommune extends Community{
     private Cities cities;
+    private String county;
+    private String voivodeship;
 
-    public UrbanCommune(String name, int id) {
-        super(name, id);
+
+    public UrbanCommune(Builder builder) {
+        super(builder);
+        this.county = builder._county;
+        this.voivodeship = builder._voivodeship;
         cities = new Cities();
     }
 
@@ -16,11 +21,11 @@ public class UrbanCommune extends Commune{
         return cities;
     }
 
-    public Map<Integer, Settlement> getCityMap() {
-        return cities.getSettlementMap();
+    public Map<String, City> getCityList() {
+        return cities.getCityMap();
     }
 
-    public void putCity(Settlement city) {
-        cities.putSettlement(city);
+    public void putCity(City city) {
+        cities.putCity(city);
     }
 }

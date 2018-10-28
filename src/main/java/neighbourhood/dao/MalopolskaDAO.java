@@ -1,6 +1,9 @@
 package neighbourhood.dao;
 
 import neighbourhood.controllers.UnitController;
+import neighbourhood.models.Community;
+import neighbourhood.models.CommunityEnum;
+import neighbourhood.models.CommunityFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,23 +18,22 @@ public class MalopolskaDAO extends VoivodeshipDao {
 
     @Override
     public void extractInformation(String splitDocChar, String splitLineChar) throws Exception{
-        String commInfor = super.getInformation();
+        String commInfor = super.getInformation().toUpperCase();
         InformationIterator docIterator = new InformationIterator(commInfor, splitDocChar);
-        InformationIterator lineIterator;
+        String[] communitySpecifications;
+        String communityName;
+        Community community;
+        CommunityEnum communityType;
+        CommunityFactory communityFactory = new CommunityFactory();
+
 
         while(docIterator.hasNext()) {
-            lineIterator = new InformationIterator(docIterator.next(), splitDocChar);
+            communitySpecifications = docIterator.next().split(splitLineChar);
+            communityName = communitySpecifications[4];
+            communityType = CommunityEnum.getAdministrationByName(communitySpecifications[5]);
 
-            String specification;
-            List<String> communitySpecifications = new ArrayList<String>();
-            while (lineIterator.hasNext()) {
-                specification = lineIterator.next();
-                if (!specification.equals("")) {
-                    communitySpecifications.add(specification);
-                }
-            }
-
-            super.getUnitController().createUnit(communitySpecifications);
+            community = communityFactory.createCommunity(communityType, communityName);
+            super.getUnitController().createUnit(community);
         }
     }
 

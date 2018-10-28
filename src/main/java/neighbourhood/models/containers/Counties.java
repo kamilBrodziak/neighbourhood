@@ -1,27 +1,30 @@
 package neighbourhood.models.containers;
 
 
-import neighbourhood.models.Administration;
+import neighbourhood.models.County;
+import neighbourhood.models.Village;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Counties implements Administrations {
-    public Map<Integer, Administration> countyMap;
+public class Counties {
+    public Map<String, County> countyMap;
 
     public Counties() {
-        countyMap = new HashMap<Integer, Administration>();
+        countyMap = new HashMap<String, County>();
     }
 
-    public Administration getAdministrationByID(int id) {
-        return countyMap.get(id);
-    }
-
-    public Map<Integer, Administration> getAdministrationMap() {
+    public Map<String, County> getCountyMap() {
         return countyMap;
     }
 
-    public void putAdministration(Administration county) {
-        countyMap.put(county.getId(), county);
+    public County getCountyByName(String name) {
+        if(countyMap.containsKey(name)) {
+            return countyMap.get(name);
+        }
+        return null;
+    }
+    public void putCounty(County county) {
+        countyMap.put(county.getName(), county);
     }
 }

@@ -1,27 +1,30 @@
 package neighbourhood.models.containers;
 
 import neighbourhood.models.City;
-import neighbourhood.models.Settlement;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cities implements Settlements {
-    public Map<Integer, Settlement> cityMap;
+public class Cities {
+    public Map<String, City> cityMap;
 
     public Cities() {
-        cityMap = new HashMap<Integer, Settlement>();
+        cityMap = new HashMap<String, City>();
     }
 
-    public Settlement getSettlementByID(int ID) {
-        return cityMap.get(ID);
+    public City getCityByName(String name) {
+        if(cityMap.containsKey(name)) {
+            return cityMap.get(name);
+        }
+        return null;
     }
 
-    public Map<Integer, Settlement> getSettlementMap() {
+    public Map<String, City> getCityMap() {
         return cityMap;
     }
 
-    public void putSettlement(Settlement settlement) {
-        cityMap.put(settlement.getID(), settlement);
+    public void putCity(City city) {
+        cityMap.put(city.getName(), city);
     }
 
 }

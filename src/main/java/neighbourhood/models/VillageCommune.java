@@ -4,11 +4,16 @@ import neighbourhood.models.containers.Villages;
 
 import java.util.Map;
 
-public class VillageCommune extends Commune {
+public class VillageCommune extends Community {
     private Villages villages;
+    private String county;
+    private String voivodeship;
 
-    public VillageCommune(String name, int id) {
-        super(name, id);
+
+    public VillageCommune(Builder builder) {
+        super(builder);
+        this.county = builder._county;
+        this.voivodeship = builder._voivodeship;
         villages = new Villages();
     }
 
@@ -16,11 +21,11 @@ public class VillageCommune extends Commune {
         return villages;
     }
 
-    public Map<Integer, Settlement> getVillageMap() {
-        return villages.getSettlementMap();
+    public Map<String, Village> getVillageList() {
+        return villages.getVillageMap();
     }
 
-    public void putVillage(Settlement village) {
-        villages.putSettlement(village);
+    public void putVillage(Village village) {
+        villages.putVillage(village);
     }
 }

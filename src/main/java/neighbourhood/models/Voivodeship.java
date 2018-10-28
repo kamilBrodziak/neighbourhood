@@ -2,15 +2,13 @@ package neighbourhood.models;
 
 import neighbourhood.models.containers.Counties;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
-public class Voivodeship extends Administration{
+public class Voivodeship extends Community{
     private Counties counties;
 
-    public Voivodeship(String name, int id) {
-        super(name, id);
+    public Voivodeship(Builder builder) {
+        super(builder);
         counties = new Counties();
     }
 
@@ -18,12 +16,14 @@ public class Voivodeship extends Administration{
         return counties;
     }
 
-    public Map<Integer, Administration> getCountyMap() {
-        return counties.getAdministrationMap();
+    public Map<String, County> getCountyList() {
+        return counties.getCountyMap();
     }
 
-    public void putCounty(Administration county) {
-        counties.putAdministration(county);
+    public void putCounty(County county) {
+        counties.putCounty(county);
     }
+
+
 
 }

@@ -1,26 +1,29 @@
 package neighbourhood.models.containers;
 
-import neighbourhood.models.Administration;
+import neighbourhood.models.Voivodeship;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Voivodeships implements Administrations {
-    public Map<Integer, Administration> voivodeshipMap;
+public class Voivodeships {
+    public Map<String, Voivodeship> voivodeshipMap;
 
     public Voivodeships() {
-        voivodeshipMap = new HashMap<Integer, Administration>();
+        voivodeshipMap = new HashMap<String, Voivodeship>();
     }
 
-    public Administration getAdministrationByID(int id) {
-        return voivodeshipMap.get(id);
+    public Voivodeship getVoivodeshipByName(String name) {
+        if(voivodeshipMap.containsKey(name)) {
+            return voivodeshipMap.get(name);
+        }
+        return null;
     }
 
-    public Map<Integer, Administration> getAdministrationMap() {
+    public Map<String, Voivodeship> getVoivodeshipMap() {
         return voivodeshipMap;
     }
 
-    public void putAdministration(Administration voivodeship) {
-        voivodeshipMap.put(voivodeship.getId(), voivodeship);
+    public void putVoivodeship(Voivodeship voivodeship) {
+        voivodeshipMap.put(voivodeship.getName(), voivodeship);
     }
 }

@@ -5,12 +5,17 @@ import neighbourhood.models.containers.Villages;
 
 import java.util.Map;
 
-public class UrbVillCommune extends Commune {
+public class UrbVillCommune extends Community {
     private Cities cities;
     private Villages villages;
+    private String county;
+    private String voivodeship;
 
-    public UrbVillCommune(String name, int id) {
-        super(name, id);
+
+    public UrbVillCommune(Builder builder) {
+        super(builder);
+        this.county = builder._county;
+        this.voivodeship = builder._voivodeship;
         cities = new Cities();
         villages = new Villages();
     }
@@ -23,20 +28,20 @@ public class UrbVillCommune extends Commune {
         return villages;
     }
 
-    public Map<Integer, Settlement> getCityMap() {
-        return cities.getSettlementMap();
+
+    public Map<String, City> getCityList() {
+        return cities.getCityMap();
     }
 
-    public Map<Integer, Settlement> getVillageMap() {
-        return villages.getSettlementMap();
+    public Map<String, Village> getVillageList() {
+        return villages.getVillageMap();
     }
 
-    public void putCity(Settlement city) {
-        cities.putSettlement(city);
+    public void putCity(City city) {
+        cities.putCity(city);
     }
 
-    public void putVillage(Settlement village) {
-        villages.putSettlement(village);
+    public void putVillage(Village village) {
+        villages.putVillage(village);
     }
-
 }
