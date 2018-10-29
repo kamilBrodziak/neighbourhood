@@ -24,6 +24,8 @@ public class DelegacyController {
         return delegacies.getDelegacyByName(name);
     }
 
+    public int getDelegacyCount() { return getDelegacyMap().size();}
+
     public void putDelegacy(Delegacy delegacy) {
         delegacies.putDelegacy(delegacy);
     }

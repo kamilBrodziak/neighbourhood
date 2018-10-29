@@ -1,5 +1,6 @@
 package neighbourhood;
 
+import neighbourhood.controllers.MainController;
 import neighbourhood.dao.MalopolskaDAO;
 
 import java.util.Map;
@@ -7,20 +8,9 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        MalopolskaDAO dao = new MalopolskaDAO("/home/kamil/Java/neighbourhood/src/main/java/neighbourhood/resources/malopolska.csv");
-        try {
-            dao.extractInformation();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        MainController mainController = new MainController();
 
-        Map<String, String> kok = dao.getCounties();
-
-
-        for(String k: kok.keySet()) {
-            System.out.println(k + " " + kok.get(k));
-        }
-        System.out.println(kok.size());
+        mainController.run();
 
     }
 }

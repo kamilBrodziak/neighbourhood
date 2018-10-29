@@ -5,13 +5,14 @@ import neighbourhood.models.Community;
 import neighbourhood.models.CommunityEnum;
 import neighbourhood.models.CommunityFactory;
 
+import java.io.File;
 import java.util.Iterator;
 
 public class MalopolskaDAO extends VoivodeshipDao {
 
-    public MalopolskaDAO(String path, UnitController unitController) {
+    public MalopolskaDAO(File file, UnitController unitController) {
 
-        super(path, unitController);
+        super(file, unitController);
     }
 
     @Override
@@ -23,7 +24,7 @@ public class MalopolskaDAO extends VoivodeshipDao {
         Community community;
         CommunityEnum communityType;
         CommunityFactory communityFactory = new CommunityFactory();
-
+        int i = 0;
 
         while(docIterator.hasNext()) {
             communitySpecifications = docIterator.next().split(splitLineChar);
@@ -32,6 +33,10 @@ public class MalopolskaDAO extends VoivodeshipDao {
 
             community = communityFactory.createCommunity(communityType, communityName);
             super.getUnitController().putUnit(community);
+            if (communityType == CommunityEnum.VILLAGECOMMUNE) {
+                i++;
+            }
+
         }
     }
 
@@ -44,7 +49,7 @@ public class MalopolskaDAO extends VoivodeshipDao {
             this.str = str.split(splitChar);
         }
 
-        public boolean hasNext() { return i > str.length; }
+        public boolean hasNext() { return i < str.length; }
 
         public String next() { return str[i++]; }
 

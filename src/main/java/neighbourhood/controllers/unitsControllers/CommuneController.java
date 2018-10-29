@@ -32,6 +32,12 @@ public class CommuneController {
         return communes.getCommuneByName(name);
     }
 
+    public int getUrbanCommuneCount() { return getUrbanCommuneMap().size(); }
+
+    public int getUrbVillCommuneCount() { return getUrbVillCommuneMap().size(); }
+
+    public int getVillageCommuneCount() { return getVillageCommuneMap().size(); }
+
     public void putCommune(Community commune) {
         communes.putCommune(commune);
     }

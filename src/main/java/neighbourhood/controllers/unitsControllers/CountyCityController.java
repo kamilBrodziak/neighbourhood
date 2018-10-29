@@ -23,6 +23,8 @@ public class CountyCityController {
         return countyCities.getCountyCityByName(name);
     }
 
+    public int getCountyCityCount() { return getCountyCityMap().size();}
+
     public void putCountyCity(CountyCity county) {
         countyCities.putCountyCity(county);
     }

@@ -1,7 +1,5 @@
 package neighbourhood.models;
 
-import neighbourhood.controllers.UnitController;
-
 public class CommunityFactory {
     private Community currVoivodeship;
     private Community currCounty;
@@ -31,7 +29,11 @@ public class CommunityFactory {
             case URBANCOMMUNE:
                 Community urbanCommune = new UrbanCommune.Builder().withName(name).withCounty(currCounty.getName()).withVoivodeship(currVoivodeship.getName()).createCommunity();
                 currCommune = urbanCommune;
-                ((County)currCounty).putUrbanCommune((UrbanCommune)urbanCommune);
+                if(currCounty instanceof County) {
+                    ((County) currCounty).putUrbanCommune((UrbanCommune) urbanCommune);
+                } else {
+                    ((CountyCity) currCounty).putUrbanCommune((UrbanCommune) urbanCommune);
+                }
                 return urbanCommune;
             case URBVILLCOMMUNE:
                 Community urbVillCommune = new UrbVillCommune.Builder().withName(name).withCounty(currCounty.getName()).withVoivodeship(currVoivodeship.getName()).createCommunity();
@@ -48,7 +50,7 @@ public class CommunityFactory {
                 if(currCommune instanceof UrbanCommune) {
                     ((UrbanCommune)currCommune).putCity((City)city);
                 } else if(currCommune instanceof UrbVillCommune) {
-                    ((UrbanCommune)currCommune).putCity((City)city);
+                    ((UrbVillCommune)currCommune).putCity((City)city);
                 }
                 return city;
             case VILLAGE:

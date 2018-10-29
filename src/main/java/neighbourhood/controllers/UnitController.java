@@ -32,7 +32,7 @@ public class UnitController {
         return couController;
     }
 
-    public CommuneController getCommuneController() {
+    public CommuneController getCommController() {
         return commController;
     }
 
@@ -44,8 +44,17 @@ public class UnitController {
         return cityController;
     }
 
+    public CountyCityController getCouCityController() {
+        return couCityController;
+    }
+
+    public DelegacyController getDeleController() {
+        return deleController;
+    }
+
+
     public void putUnit(Community community) {
-        CommunityEnum communityType = CommunityEnum.valueOf(community.getClass().getSimpleName());
+        CommunityEnum communityType = CommunityEnum.valueOf(community.getPolyClassName().toUpperCase());
         switch (communityType) {
             case VOIVODESHIP:
                 voiController.putVoivodeship((Voivodeship)community);

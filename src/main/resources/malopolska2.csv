@@ -1,4 +1,4 @@
-woj;pow;gmi;nazwa;typ
+woj;pow;gmi;;nazwa;typ
 12;;;MAŁOPOLSKIE;województwo
 12;1;;bocheński;powiat
 12;1;1;Bochnia;gmina miejska
@@ -299,4 +299,4 @@ woj;pow;gmi;nazwa;typ
 12;62;;Nowy Sącz;miasto na prawach powiatu
 12;62;1;Nowy Sącz;gmina miejska
 12;63;;Tarnów;miasto na prawach powiatu
-12;63;1;Tarnów;gmina miejska 
+12;63;1;Tarnów;gmina miejska

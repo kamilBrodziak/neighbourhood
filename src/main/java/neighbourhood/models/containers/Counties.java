@@ -8,22 +8,28 @@ import java.util.Map;
 
 public class Counties {
     public Map<String, County> countyMap;
+    static int id = 0;
 
     public Counties() {
-        countyMap = new HashMap<String, County>();
+        countyMap = new HashMap<>();
     }
 
-    public Map<String, County> getCountyMap() {
-        return countyMap;
-    }
-
+    //MUST ADD ID TO NAME, NOT DONE
     public County getCountyByName(String name) {
         if(countyMap.containsKey(name)) {
             return countyMap.get(name);
         }
         return null;
     }
-    public void putCounty(County county) {
-        countyMap.put(county.getName(), county);
+
+    public Map<String, County> getCountyMap() {
+        return countyMap;
     }
+
+    public void putCounty(County county) {
+        id++;
+        countyMap.put(county.getName() + id, county);
+    }
+
+
 }

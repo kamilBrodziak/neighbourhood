@@ -11,9 +11,8 @@ public class UrbanCommune extends Community{
     private String countyName;
     private String voivodeshipName;
 
-
     public UrbanCommune(Builder builder) {
-        super(builder);
+        super(builder._name);
         this.countyName = builder._countyName;
         this.voivodeshipName = builder._voivodeshipName;
         cities = new Cities();
@@ -32,10 +31,35 @@ public class UrbanCommune extends Community{
 
     public Map<String, Delegacy> getDelegacyMap() { return delegacies.getDelegacyMap(); }
 
-    public void putCity(City city) {
-        cities.putCity(city);
-    }
+    public void putCity(City city) { cities.putCity(city); }
 
     public void putDelegacy(Delegacy delegacy) { delegacies.putDelegacy(delegacy); }
+
+    public static class Builder implements IBuilder {
+        private String _voivodeshipName;
+        private String _countyName;
+        private String _name;
+
+        public Builder withVoivodeship(String voivodeshipName) {
+            this._voivodeshipName = voivodeshipName;
+            return this;
+        }
+
+        public Builder withCounty(String countyName) {
+            this._countyName = countyName;
+            return this;
+        }
+
+        @Override
+        public Builder withName(String name) {
+            this._name = name;
+            return this;
+        }
+
+        @Override
+        public Community createCommunity() {
+            return new UrbanCommune(this);
+        }
+    }
 
 }

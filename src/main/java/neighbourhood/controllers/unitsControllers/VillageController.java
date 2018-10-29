@@ -16,13 +16,15 @@ public class VillageController {
         return villages;
     }
 
-    public Map<String, Village> getCityMap() {
+    public Map<String, Village> getVillageMap() {
         return villages.getVillageMap();
     }
 
     public Village getVillageByName(String name) {
         return villages.getVillageByName(name);
     }
+
+    public int getVillageCount() { return getVillageMap().size();}
 
     public void putVillage(Village village) {
         villages.putVillage(village);

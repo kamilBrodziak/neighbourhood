@@ -5,51 +5,39 @@ public class Community {
 
     public Community() {}
 
-    public Community(Builder builder) {
-        this.name = builder._name;
+    public Community(String name) {
+        this.name = name;
     }
 
     public String getName() {
         return name;
     }
 
-    public static class Builder {
-        protected String _voivodeshipName;
-        protected String _countyName;
-        protected String _communeName;
-        protected String _name;
-        protected String _delegacyName;
-
-        public Builder withVoivodeship(String voivodeshipName) {
-            this._voivodeshipName = voivodeshipName;
-            return this;
+    public String getPolyClassName() {
+        if (this instanceof Voivodeship) {
+            return Voivodeship.class.getSimpleName();
+        } else if(this instanceof County) {
+            return County.class.getSimpleName();
+        } else if(this instanceof  UrbanCommune) {
+            return UrbanCommune.class.getSimpleName();
+        } else if(this instanceof VillageCommune) {
+            return VillageCommune.class.getSimpleName();
+        } else if(this instanceof UrbVillCommune) {
+            return UrbVillCommune.class.getSimpleName();
+        } else if(this instanceof CountyCity) {
+            return CountyCity.class.getSimpleName();
+        } else if(this instanceof Delegacy) {
+            return Delegacy.class.getSimpleName();
+        } else if(this instanceof City) {
+            return City.class.getSimpleName();
+        } else if(this instanceof Village) {
+            return Village.class.getSimpleName();
         }
+        return "sss";
+    }
 
-        public Builder withCounty(String countyName) {
-            this._countyName = countyName;
-            return this;
-        }
-
-
-        public Builder withCommune(String communeName) {
-            this._communeName = communeName;
-            return this;
-        }
-
-        public Builder withDelegacy(String delegacyName) {
-            this._delegacyName = delegacyName;
-            return this;
-        }
-
-        public Builder withName(String name) {
-            this._name = _name;
-            return this;
-        }
-
-
-
-        public Community createCommunity() {
-            return new Community(this);
-        }
+    public interface IBuilder {
+        public IBuilder withName(String name);
+        public Community createCommunity();
     }
 }

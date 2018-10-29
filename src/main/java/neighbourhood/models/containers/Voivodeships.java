@@ -9,7 +9,7 @@ public class Voivodeships {
     public Map<String, Voivodeship> voivodeshipMap;
 
     public Voivodeships() {
-        voivodeshipMap = new HashMap<String, Voivodeship>();
+        voivodeshipMap = new HashMap<>();
     }
 
     public Voivodeship getVoivodeshipByName(String name) {

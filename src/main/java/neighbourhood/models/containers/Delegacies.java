@@ -6,11 +6,14 @@ import neighbourhood.models.Delegacy;
 
 public class Delegacies {
     public Map<String, Delegacy> delegacyMap;
+    private static int id = 0;
+
 
     public Delegacies() {
-        delegacyMap = new HashMap<String, Delegacy>();
+        delegacyMap = new HashMap<>();
     }
 
+    //MUST ADD ID TO NAME, NOT DONE
     public Delegacy getDelegacyByName(String name) {
         if(delegacyMap.containsKey(name)) {
             return delegacyMap.get(name);
@@ -23,6 +26,8 @@ public class Delegacies {
     }
 
     public void putDelegacy(Delegacy delegacy) {
-        delegacyMap.put(delegacy.getName(), delegacy);
+        id ++;
+        delegacyMap.put(delegacy.getName() + id, delegacy);
     }
+
 }

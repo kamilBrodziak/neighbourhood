@@ -3,13 +3,15 @@ package neighbourhood.dao;
 import neighbourhood.controllers.UnitController;
 import neighbourhood.parsers.CSVParser;
 
+import java.io.File;
+
 public abstract class VoivodeshipDao {
     private String information;
     private UnitController unitController;
 
-    public VoivodeshipDao(String path, UnitController unitController) {
+    public VoivodeshipDao(File file, UnitController unitController) {
         CSVParser parser = new CSVParser();
-        this.information = parser.parse(path);
+        this.information = parser.parse(file);
         this.unitController = unitController;
 
     }

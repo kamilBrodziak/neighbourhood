@@ -11,17 +11,19 @@ public class VoivodeshipController {
         this.voivodeships = new Voivodeships();
     }
 
-    public Voivodeships getCounties() {
+    public Voivodeships getVoivodeships() {
         return voivodeships;
     }
 
-    public Map<String, Voivodeship> getCountyMap() {
+    public Map<String, Voivodeship> getVoivodeshipMap() {
         return voivodeships.getVoivodeshipMap();
     }
 
     public Voivodeship getVoivodeshipByName(String name) {
         return voivodeships.getVoivodeshipByName(name);
     }
+
+    public int getVoivodeshipCount() { return getVoivodeshipMap().size();}
 
     public void putVoivodeship(Voivodeship voivodeship) {
         voivodeships.putVoivodeship(voivodeship);

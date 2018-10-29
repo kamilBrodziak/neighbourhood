@@ -19,9 +19,12 @@ public class CountyController {
         return counties.getCountyMap();
     }
 
+
     public County getCounty(String name) {
         return counties.getCountyByName(name);
     }
+
+    public int getCountyCount() { return getCountyMap().size();}
 
     public void putCounty(County county) {
         counties.putCounty(county);

@@ -7,16 +7,16 @@ import java.util.Scanner;
 
 public class CSVParser {
 
-    public String parse(String path) {
+    public String parse(File file) {
         String parsedCSV = "";
 
         try {
-            Scanner CSVScanner = new Scanner(new File(path));
+            Scanner CSVScanner = new Scanner(file);
             if(CSVScanner.hasNextLine()) {
                 CSVScanner.nextLine();
             }
             while(CSVScanner.hasNextLine()) {
-                parsedCSV += CSVScanner.nextLine() + ";";
+                parsedCSV += CSVScanner.nextLine() + "\n";
             }
         } catch(IOException e) {
             e.printStackTrace();

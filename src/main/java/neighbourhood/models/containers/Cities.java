@@ -7,11 +7,13 @@ import java.util.Map;
 
 public class Cities {
     public Map<String, City> cityMap;
+    static int id = 0;
 
     public Cities() {
-        cityMap = new HashMap<String, City>();
+        cityMap = new HashMap<>();
     }
 
+    //MUST ADD ID TO NAME, NOT DONE
     public City getCityByName(String name) {
         if(cityMap.containsKey(name)) {
             return cityMap.get(name);
@@ -24,7 +26,13 @@ public class Cities {
     }
 
     public void putCity(City city) {
-        cityMap.put(city.getName(), city);
+        id++;
+        cityMap.put(city.getName() + id, city);
     }
+
+    public void putCity(String name, City city) {
+        cityMap.put(name, city);
+    }
+
 
 }

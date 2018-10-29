@@ -25,6 +25,8 @@ public class CityController {
         return cities.getCityByName(name);
     }
 
+    public int getCityCount() { return getCityMap().size();}
+
     public void putCity(City city) {
         cities.putCity(city);
     }

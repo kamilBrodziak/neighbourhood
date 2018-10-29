@@ -1,8 +1,11 @@
-package neighbourhood.View;
+package neighbourhood.view;
+
+import neighbourhood.tools.Tools;
 
 public class Menu {
 
     public static void showMenu() {
+        Tools.clearScreen();
         System.out.println("What would you like to do:");
         System.out.println("\t(1) List statistics");
         System.out.println("\t(1) Display 3 cities with longest names");

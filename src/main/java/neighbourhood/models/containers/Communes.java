@@ -12,11 +12,15 @@ public class Communes {
     private Map<String, UrbanCommune> urbanCommuneMap;
     private Map<String, UrbVillCommune> urbVillCommuneMap;
     private Map<String, VillageCommune> villageCommuneMap;
+    static int idU = 0;
+    static int idUV = 0;
+    static int idV = 0;
+
 
     public Communes() {
-        urbanCommuneMap = new HashMap<String, UrbanCommune>();
-        urbVillCommuneMap = new HashMap<String, UrbVillCommune>();
-        villageCommuneMap = new HashMap<String, VillageCommune>();
+        urbanCommuneMap = new HashMap<>();
+        urbVillCommuneMap = new HashMap<>();
+        villageCommuneMap = new HashMap<>();
     }
 
     public void putCommune(Community commune) {
@@ -30,17 +34,21 @@ public class Communes {
     }
 
     public void putUrbanCommune(UrbanCommune urbanCommune) {
-        urbanCommuneMap.put(urbanCommune.getName(), urbanCommune);
+        idU++;
+        urbanCommuneMap.put(urbanCommune.getName() + idU, urbanCommune);
     }
 
     public void putUrbVillCommune(UrbVillCommune urbVillCommune) {
-        urbVillCommuneMap.put(urbVillCommune.getName(), urbVillCommune);
+        idUV++;
+        urbVillCommuneMap.put(urbVillCommune.getName() + idUV, urbVillCommune);
     }
 
     public void putVillageCommune(VillageCommune villageCommune) {
-        villageCommuneMap.put(villageCommune.getName(), villageCommune);
+        idV++;
+        villageCommuneMap.put(villageCommune.getName() + idV, villageCommune);
     }
 
+    //MUST ADD ID TO NAME, NOT DONE
     public Community getCommuneByName(String name) {
         if(urbanCommuneMap.containsKey(name)) {
             return urbanCommuneMap.get(name);

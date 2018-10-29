@@ -9,7 +9,7 @@ public class County extends Community{
     private String voivodeshipName;
 
     public County(Builder builder) {
-        super(builder);
+        super(builder._name);
         this.voivodeshipName = builder._voivodeshipName;
         communes = new Communes();
     }
@@ -41,5 +41,26 @@ public class County extends Community{
 
     public void putVillageCommune(VillageCommune villageCommune) {
         communes.putVillageCommune(villageCommune);
+    }
+
+    public static class Builder implements IBuilder {
+        private String _voivodeshipName;
+        private String _name;
+
+        public Builder withVoivodeship(String voivodeshipName) {
+            this._voivodeshipName = voivodeshipName;
+            return this;
+        }
+
+        @Override
+        public Builder withName(String name) {
+            this._name = name;
+            return this;
+        }
+
+        @Override
+        public Community createCommunity() {
+            return new County(this);
+        }
     }
 }
