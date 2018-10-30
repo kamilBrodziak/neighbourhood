@@ -1,15 +1,15 @@
 package neighbourhood.models;
 
 public enum CommunityEnum {
-    VOIVODESHIP("WOJEWÓDZTWO"),
-    COUNTY("POWIAT"),
-    URBANCOMMUNE("GMINA MIEJSKA"),
-    URBVILLCOMMUNE("GMINA MIEJSKO-WIEJSKA"),
-    VILLAGECOMMUNE("GMINA WIEJSKA"),
-    CITY("MIASTO"),
-    VILLAGE("OBSZAR WIEJSKI"),
-    COUNTYCITY("MIASTO NA PRAWACH POWIATU"),
-    DELEGACY("DELEGATURA");
+    VOIVODESHIP("województwo"),
+    COUNTY("powiat"),
+    URBANCOMMUNE("gmina miejska"),
+    URBVILLCOMMUNE("gmina miejsko-wiejska"),
+    VILLAGECOMMUNE("gmina wiejska"),
+    CITY("miasto"),
+    VILLAGE("obszar wiejski"),
+    COUNTYCITY("miasto na prawach powiatu"),
+    DELEGACY("delegatura");
 
     private String type;
 

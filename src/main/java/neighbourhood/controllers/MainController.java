@@ -2,6 +2,7 @@ package neighbourhood.controllers;
 
 import neighbourhood.dao.MalopolskaDAO;
 import neighbourhood.view.Menu;
+import neighbourhood.view.Search;
 import neighbourhood.view.Statistics;
 
 import java.io.File;
@@ -37,62 +38,64 @@ public class MainController {
                 case "1":
                     showStatistics();
                     break;
+                case "5":
+                    searchFor();
+                    break;
+                case "6":
+                    return;
             }
         }
     }
 
     private void showStatistics() {
-        ArrayList<String> headersList = new ArrayList<>();
-        headersList.add("MAŁOPOLSKA");
+        ArrayList<String> headersList = new ArrayList<String>() {{
+            add("MAŁOPOLSKA");
+        }};
 
-        List<ArrayList<String>> rows= new ArrayList<ArrayList<String>>();
-        ArrayList<String> row = new ArrayList<String>();
-
-        row.add(unitController.getVoiController().getVoivodeshipCount() + "");
-        row.add("województwo");
-        rows.add(row);
-
-        row = new ArrayList<>();
-        row.add(unitController.getCouController().getCountyCount() +
-                unitController.getCouCityController().getCountyCityCount() + "");
-        row.add("powiat");
-        rows.add(row);
-
-        row = new ArrayList<>();
-        row.add(unitController.getCommController().getUrbanCommuneCount() + "");
-        row.add("gmina miejska");
-        rows.add(row);
-
-        row = new ArrayList<>();
-        row.add(unitController.getCommController().getVillageCommuneCount() + "");
-        row.add("gmina wiejska");
-        rows.add(row);
-
-        row = new ArrayList<>();
-        row.add(unitController.getCommController().getUrbVillCommuneCount() + "");
-        row.add("gmina miejsko-wiejska");
-        rows.add(row);
-
-        row = new ArrayList<>();
-        row.add(unitController.getVillController().getVillageCount() + "");
-        row.add("obszar wiejski");
-        rows.add(row);
-
-        row = new ArrayList<>();
-        row.add(unitController.getCityController().getCityCount() + "");
-        row.add("miasto");
-        rows.add(row);
-
-        row = new ArrayList<>();
-        row.add(unitController.getCouCityController().getCountyCityCount() + "");
-        row.add("miasto na prawach powiatu");
-        rows.add(row);
-
-        row = new ArrayList<>();
-        row.add(unitController.getDeleController().getDelegacyCount() + "");
-        row.add("delegatura");
-        rows.add(row);
+        List<ArrayList<String>> rows= new ArrayList<ArrayList<String>>() {{
+            add(new ArrayList<String>() {{
+                add(unitController.getVoiController().getVoivodeshipCount() + "");
+                add("województwo");
+            }});
+            add(new ArrayList<String>() {{
+                add(unitController.getCouController().getCountyCount() +
+                        unitController.getCouCityController().getCountyCityCount() + "");
+                add("powiat");
+            }});
+            add(new ArrayList<String>() {{
+                add(unitController.getCommController().getUrbanCommuneCount() + "");
+                add("gmina miejska");
+            }});
+            add(new ArrayList<String>() {{
+                add(unitController.getCommController().getVillageCommuneCount() + "");
+                add("gmina wiejska");
+            }});
+            add(new ArrayList<String>() {{
+                add(unitController.getCommController().getUrbVillCommuneCount() + "");
+                add("gmina miejsko-wiejska");
+            }});
+            add(new ArrayList<String>() {{
+                add(unitController.getVillController().getVillageCount() + "");
+                add("obszar wiejski");
+            }});
+            add(new ArrayList<String>() {{
+                add(unitController.getCityController().getCityCount() + "");
+                add("miasto");
+            }});
+            add(new ArrayList<String>() {{
+                add(unitController.getCouCityController().getCountyCityCount() + "");
+                add("miasto na prawach powiatu");
+            }});
+            add(new ArrayList<String>() {{
+                add(unitController.getDeleController().getDelegacyCount() + "");
+                add("delegatura");
+            }});
+        }};
 
         Statistics.showStatistics(rows, headersList);
+    }
+
+    private void searchFor() {
+        Search.searchFor(unitController);
     }
 }

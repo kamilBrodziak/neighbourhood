@@ -17,7 +17,7 @@ public class MalopolskaDAO extends VoivodeshipDao {
 
     @Override
     public void extractInformation(String splitDocChar, String splitLineChar) throws Exception{
-        String commInfor = super.getInformation().toUpperCase();
+        String commInfor = super.getInformation();
         InformationIterator docIterator = new InformationIterator(commInfor, splitDocChar);
         String[] communitySpecifications;
         String communityName;

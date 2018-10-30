@@ -18,7 +18,7 @@ public class Statistics {
 
         int statisticsColAmount = rows.get(0).size();
         int headersColAmount = tableHeaders.size();
-        List<ArrayList<String>> rowsToAnalyze = rows;
+        ArrayList<ArrayList<String>> rowsToAnalyze = new ArrayList<>(rows);
         if(rows.get(0).size() == tableHeaders.size()) {
             rowsToAnalyze.add(tableHeaders);
         }
@@ -42,16 +42,15 @@ public class Statistics {
 
     private static void printHeaderPart(List<String> tableHeaders, List<Integer> columnsLength, int tableWidth) {
         System.out.println(Tools.multiplyString("█", tableWidth));
-        System.out.println("█" + Tools.multiplyString(" ", tableWidth - OUTER_FRAMES_AMOUNT) + "█");
-
         if (tableHeaders.size() == 1) {
+            System.out.println("█" + Tools.multiplyString(" ", tableWidth - OUTER_FRAMES_AMOUNT) + "█");
             printHeader(tableHeaders.get(0), tableWidth - OUTER_FRAMES_AMOUNT);
+            System.out.println("█");
+            System.out.println("█" + Tools.multiplyString(" ", tableWidth - OUTER_FRAMES_AMOUNT) + "█");
         } else if(tableHeaders.size() == columnsLength.size()) {
             printHeaders(tableHeaders, columnsLength);
         }
-        System.out.println("█");
 
-        System.out.println("█" + Tools.multiplyString(" ", tableWidth - OUTER_FRAMES_AMOUNT) + "█");
         System.out.println(Tools.multiplyString("█", tableWidth));
     }
 
@@ -60,9 +59,12 @@ public class Statistics {
     }
 
     private static void printHeaders(List<String> tableHeaders, List<Integer> columnsLength) {
+        printDecor(columnsLength);
         for(int i = 0; i < tableHeaders.size(); ++i) {
             printHeader(tableHeaders.get(i), columnsLength.get(i));
         }
+        System.out.println("█");
+        printDecor(columnsLength);
     }
 
     private static void printRowsPart(List<ArrayList<String>> rows, List<Integer> columnsLength, int tableWidth) {

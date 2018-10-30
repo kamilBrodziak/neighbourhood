@@ -6,7 +6,7 @@ public class Delegacy extends Community {
     private String county;
 
     public Delegacy(Builder builder) {
-        super(builder._name);
+        super(builder._name, CommunityEnum.DELEGACY);
         voivodeshipName = builder._voivodeshipName;
         county = builder._countyName;
         communeName = builder._communeName;

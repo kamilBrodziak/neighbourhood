@@ -16,17 +16,17 @@ public class CountyController {
     }
 
     public Map<String, County> getCountyMap() {
-        return counties.getCountyMap();
+        return counties.getCommunityMap();
     }
 
 
     public County getCounty(String name) {
-        return counties.getCountyByName(name);
+        return counties.getCommunityByName(name);
     }
 
     public int getCountyCount() { return getCountyMap().size();}
 
     public void putCounty(County county) {
-        counties.putCounty(county);
+        counties.putCommunity(county, county.getName());
     }
 }

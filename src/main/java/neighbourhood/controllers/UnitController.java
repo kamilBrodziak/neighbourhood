@@ -62,7 +62,6 @@ public class UnitController {
             case COUNTY:
                 couController.putCounty((County)community);
                 break;
-
             case CITY:
                 cityController.putCity((City)community);
                 break;

@@ -7,7 +7,7 @@ import neighbourhood.models.containers.Cities;
 import java.util.Map;
 
 public class CityController {
-    Cities cities;
+    private Cities cities;
 
     public CityController() {
         cities = new Cities();
@@ -18,16 +18,16 @@ public class CityController {
     }
 
     public Map<String, City> getCityMap() {
-        return cities.getCityMap();
+        return cities.getCommunityMap();
     }
 
     public City getCityByName(String name) {
-        return cities.getCityByName(name);
+        return cities.getCommunityByName(name);
     }
 
     public int getCityCount() { return getCityMap().size();}
 
     public void putCity(City city) {
-        cities.putCity(city);
+        cities.putCommunity(city, city.getName());
     }
 }

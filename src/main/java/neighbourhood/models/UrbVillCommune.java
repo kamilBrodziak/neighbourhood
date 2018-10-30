@@ -12,13 +12,15 @@ public class UrbVillCommune extends Community{
     private String voivodeshipName;
 
 
+
     public UrbVillCommune(Builder builder) {
-        super(builder._name);
+        super(builder._name, CommunityEnum.URBVILLCOMMUNE);
         this.countyName = builder._countyName;
         this.voivodeshipName = builder._voivodeshipName;
         cities = new Cities();
         villages = new Villages();
     }
+
 
     public Cities getCities() {
         return cities;
@@ -30,19 +32,19 @@ public class UrbVillCommune extends Community{
 
 
     public Map<String, City> getCityList() {
-        return cities.getCityMap();
+        return cities.getCommunityMap();
     }
 
     public Map<String, Village> getVillageList() {
-        return villages.getVillageMap();
+        return villages.getCommunityMap();
     }
 
     public void putCity(City city) {
-        cities.putCity(city);
+        cities.putCommunity(city, city.getName());
     }
 
     public void putVillage(Village village) {
-        villages.putVillage(village);
+        villages.putCommunity(village, village.getName());
     }
 
     public static class Builder implements IBuilder {

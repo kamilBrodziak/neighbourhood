@@ -11,22 +11,23 @@ public class VillageCommune extends Community {
 
 
     public VillageCommune(Builder builder) {
-        super(builder._name);
+        super(builder._name, CommunityEnum.VILLAGECOMMUNE);
         this.countyName = builder._countyName;
         this.voivodeshipName = builder._voivodeshipName;
         villages = new Villages();
     }
 
+
     public Villages getVillages() {
         return villages;
     }
 
-    public Map<String, Village> getVillageList() {
-        return villages.getVillageMap();
+    public Map<String, Village> getVillageMap() {
+        return villages.getCommunityMap();
     }
 
     public void putVillage(Village village) {
-        villages.putVillage(village);
+        villages.putCommunity(village, village.getName());
     }
 
     public static class Builder implements IBuilder {

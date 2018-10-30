@@ -17,16 +17,16 @@ public class DelegacyController {
     }
 
     public Map<String, Delegacy> getDelegacyMap() {
-        return delegacies.getDelegacyMap();
+        return delegacies.getCommunityMap();
     }
 
     public Delegacy getDelegacy(String name) {
-        return delegacies.getDelegacyByName(name);
+        return delegacies.getCommunityByName(name);
     }
 
     public int getDelegacyCount() { return getDelegacyMap().size();}
 
     public void putDelegacy(Delegacy delegacy) {
-        delegacies.putDelegacy(delegacy);
+        delegacies.putCommunity(delegacy, delegacy.getName());
     }
 }

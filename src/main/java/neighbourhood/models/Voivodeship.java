@@ -10,10 +10,11 @@ public class Voivodeship extends Community{
     private CountyCities countyCities;
 
     public Voivodeship(Builder builder) {
-        super(builder._name);
+        super(builder._name, CommunityEnum.VOIVODESHIP);
         counties = new Counties();
         countyCities = new CountyCities();
     }
+
 
     public Counties getCounties() {
         return counties;
@@ -23,15 +24,15 @@ public class Voivodeship extends Community{
         return countyCities;
     }
 
-    public Map<String, County> getCountyList() {
-        return counties.getCountyMap();
+    public Map<String, County> getCountyMap() {
+        return counties.getCommunityMap();
     }
 
     public void putCounty(County county) {
-        counties.putCounty(county);
+        counties.putCommunity(county, county.getName());
     }
 
-    public void putCountyCity(CountyCity countyCity) { countyCities.putCountyCity(countyCity); }
+    public void putCountyCity(CountyCity countyCity) { countyCities.putCommunity(countyCity, countyCity.getName()); }
 
     public static class Builder implements IBuilder {
         private String _voivodeshipName;

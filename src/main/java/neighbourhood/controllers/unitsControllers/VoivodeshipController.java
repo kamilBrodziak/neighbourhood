@@ -16,16 +16,16 @@ public class VoivodeshipController {
     }
 
     public Map<String, Voivodeship> getVoivodeshipMap() {
-        return voivodeships.getVoivodeshipMap();
+        return voivodeships.getCommunityMap();
     }
 
     public Voivodeship getVoivodeshipByName(String name) {
-        return voivodeships.getVoivodeshipByName(name);
+        return voivodeships.getCommunityByName(name);
     }
 
     public int getVoivodeshipCount() { return getVoivodeshipMap().size();}
 
     public void putVoivodeship(Voivodeship voivodeship) {
-        voivodeships.putVoivodeship(voivodeship);
+        voivodeships.putCommunity(voivodeship, voivodeship.getName());
     }
 }

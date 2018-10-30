@@ -5,42 +5,54 @@ import neighbourhood.models.containers.*;
 import java.util.Map;
 
 public class County extends Community{
-    private Communes communes;
+    private UrbanCommunes urbanCommunes;
+    private UrbVillCommunes urbVillCommunes;
+    private VillageCommunes villageCommunes;
+
     private String voivodeshipName;
 
     public County(Builder builder) {
-        super(builder._name);
+        super(builder._name, CommunityEnum.COUNTY);
         this.voivodeshipName = builder._voivodeshipName;
-        communes = new Communes();
+        urbanCommunes = new UrbanCommunes();
+        urbVillCommunes = new UrbVillCommunes();
+        villageCommunes = new VillageCommunes();
     }
 
+    public UrbanCommunes getUrbanCommunes() {
+        return urbanCommunes;
+    }
 
-    public Communes getCommunes() {
-        return communes;
+    public UrbVillCommunes getUrbVillCommunes() {
+        return urbVillCommunes;
+    }
+
+    public VillageCommunes getVillageCommunes() {
+        return villageCommunes;
     }
 
     public Map<String, UrbanCommune> getUrbanCommuneMap() {
-        return communes.getUrbanCommuneMap();
+        return urbanCommunes.getCommunityMap();
     }
 
     public Map<String, UrbVillCommune> getUrbVillCommuneMap() {
-        return communes.getUrbVillCommuneMap();
+        return urbVillCommunes.getCommunityMap();
     }
 
     public Map<String, VillageCommune> getVillageCommuneMap() {
-        return communes.getVillageCommuneMap();
+        return villageCommunes.getCommunityMap();
     }
 
     public void putUrbanCommune(UrbanCommune urbanCommune) {
-        communes.putUrbanCommune(urbanCommune);
+        urbanCommunes.putCommunity(urbanCommune, urbanCommune.getName());
     }
 
     public void putUrbVillCommune(UrbVillCommune urbVillCommune) {
-        communes.putUrbVillCommune(urbVillCommune);
+        urbVillCommunes.putCommunity(urbVillCommune, urbVillCommune.getName());
     }
 
     public void putVillageCommune(VillageCommune villageCommune) {
-        communes.putVillageCommune(villageCommune);
+        villageCommunes.putCommunity(villageCommune, villageCommune.getName());
     }
 
     public static class Builder implements IBuilder {

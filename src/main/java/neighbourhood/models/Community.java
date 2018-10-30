@@ -2,15 +2,19 @@ package neighbourhood.models;
 
 public class Community {
     private String name;
+    private final CommunityEnum communityType;
 
-    public Community() {}
-
-    public Community(String name) {
+    public Community(String name, CommunityEnum communityType) {
         this.name = name;
+        this.communityType = communityType;
     }
 
     public String getName() {
         return name;
+    }
+
+    public CommunityEnum getCommunityType() {
+        return communityType;
     }
 
     public String getPolyClassName() {

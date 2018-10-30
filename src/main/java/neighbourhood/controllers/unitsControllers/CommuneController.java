@@ -1,35 +1,61 @@
 package neighbourhood.controllers.unitsControllers;
 
 import neighbourhood.models.*;
-import neighbourhood.models.containers.Communes;
+import neighbourhood.models.containers.UrbVillCommunes;
+import neighbourhood.models.containers.UrbanCommunes;
+import neighbourhood.models.containers.VillageCommunes;
 
 import java.util.Map;
 
 public class CommuneController {
-    private Communes communes;
+    private UrbanCommunes urbanCommunes;
+    private UrbVillCommunes urbVIllCommunes;
+    private VillageCommunes villageCommunes;
 
     public CommuneController() {
-        communes = new Communes();
+        urbanCommunes = new UrbanCommunes();
+        urbVIllCommunes = new UrbVillCommunes();
+        villageCommunes = new VillageCommunes();
+
     }
 
-    public Communes getCommunes() {
-        return communes;
+    public UrbanCommunes getUrbanCommunes() {
+        return urbanCommunes;
     }
+
+    public UrbVillCommunes getUrbVIllCommunes() {
+        return urbVIllCommunes;
+    }
+
+    public VillageCommunes getVillageCommunes() {
+        return villageCommunes;
+    }
+
 
     public Map<String, UrbanCommune> getUrbanCommuneMap() {
-        return communes.getUrbanCommuneMap();
+        return urbanCommunes.getCommunityMap();
     }
 
     public Map<String, UrbVillCommune> getUrbVillCommuneMap() {
-        return communes.getUrbVillCommuneMap();
+        return urbVIllCommunes.getCommunityMap();
     }
 
     public Map<String, VillageCommune> getVillageCommuneMap() {
-        return communes.getVillageCommuneMap();
+        return villageCommunes.getCommunityMap();
     }
 
     public Community getCommuneByName(String name) {
-        return communes.getCommuneByName(name);
+        Community urb = villageCommunes.getCommunityByName(name);
+        Community urbVill = urbVIllCommunes.getCommunityByName(name);
+        Community vill = villageCommunes.getCommunityByName(name);
+        if(urb != null) {
+            return urb;
+        } else if(urbVill != null) {
+            return urbVill;
+        } else if(vill != null) {
+            return vill;
+        }
+        return null;
     }
 
     public int getUrbanCommuneCount() { return getUrbanCommuneMap().size(); }
@@ -39,6 +65,12 @@ public class CommuneController {
     public int getVillageCommuneCount() { return getVillageCommuneMap().size(); }
 
     public void putCommune(Community commune) {
-        communes.putCommune(commune);
+        if(commune.getPolyClassName().equals(UrbanCommune.class.getSimpleName())) {
+            urbanCommunes.putCommunity((UrbanCommune)commune, commune.getName());
+        } else if(commune.getPolyClassName().equals(UrbVillCommune.class.getSimpleName())) {
+            urbVIllCommunes.putCommunity((UrbVillCommune)commune, commune.getName());
+        } else if(commune.getPolyClassName().equals(VillageCommune.class.getSimpleName())) {
+            villageCommunes.putCommunity((VillageCommune)commune, commune.getName());
+        }
     }
 }

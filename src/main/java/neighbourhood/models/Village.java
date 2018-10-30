@@ -7,7 +7,7 @@ public class Village extends Community{
 
 
     public Village(Builder builder) {
-        super(builder._name);
+        super(builder._name, CommunityEnum.VILLAGE);
         this.communeName = builder._communeName;
         this.countyName = builder._countyName;
         this.voivodeshipName = builder._voivodeshipName;
