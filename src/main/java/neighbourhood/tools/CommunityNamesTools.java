@@ -24,7 +24,7 @@ public class CommunityNamesTools {
         }
 
         Map<String, Village> villageMap = unitController.getVillController().getVillageMap();
-        for(String name: cityMap.keySet()) {
+        for(String name: villageMap.keySet()) {
             communityNameMap.put(name, villageMap.get(name).getCommunityType());
         }
 
@@ -68,9 +68,9 @@ public class CommunityNamesTools {
         ArrayList<ArrayList<String>> searched= new ArrayList<>();
 
         for(String communityName: communityNameMap.keySet()) {
-            if(communityName.toUpperCase().contains(name.toUpperCase())) {
+            if((communityName.toUpperCase().replaceAll("[0-9]", "")).contains(name.toUpperCase())) {
                 ArrayList<String> record = new ArrayList<>();
-                record.add(communityName.replaceAll("[1-9]", ""));
+                record.add(communityName.replaceAll("[0-9]", ""));
                 record.add(communityNameMap.get(communityName).getType());
                 searched.add(record);
             }
