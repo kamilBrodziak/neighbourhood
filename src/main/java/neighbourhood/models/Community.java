@@ -1,6 +1,6 @@
 package neighbourhood.models;
 
-public class Community {
+public abstract class Community {
     private String name;
     private final CommunityEnum communityType;
 

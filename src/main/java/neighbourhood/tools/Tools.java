@@ -1,7 +1,5 @@
 package neighbourhood.tools;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.util.*;
 
 public class Tools {
@@ -11,52 +9,15 @@ public class Tools {
         System.out.flush();
     }
 
-    public static List<String> transformMapIntoStringList(Map<String, Integer> map) {
-        List<String> strings = new ArrayList<String>();
-        for(String key: map.keySet()) {
-            strings.add(key);
-            strings.add(map.get(key) + "");
-        }
-        return strings;
-    }
-
-    public static List<String> concateneteLists(List<String> listA, List<String> listB) {
-        for(String s: listB) {
-            listA.add(s);
-        }
-        return listA;
-    }
-
-    public static int getLongestStringSizeFromSet(Set<String> set) {
-        int longestSize = 0;
-        for(String s: set) {
-            int sLen = s.length();
-            if(sLen > longestSize) {
-                longestSize = sLen;
-            }
-        }
-        return longestSize;
-    }
-
-    public static int getLongestStringSizeFromIntCollection(Collection<Integer> collection) {
-        int longestSize = 0;
-        for(int i: collection) {
-            int sLen = (i + "").length();
-            if(sLen > longestSize) {
-                longestSize = sLen;
-            }
-        }
-        return longestSize;
-    }
-
     public static List<Integer> getColumnsLength(List<ArrayList<String>> list) {
-        List<Integer> columnsLen = new ArrayList<Integer>();
+        List<Integer> columnsLen = new ArrayList<>();
+        int additionalSpace = 2;
 
         for(int i = 0; i < list.get(0).size(); ++i) { columnsLen.add(0); }
 
         for(List<String> innerList: list) {
             for(int i = 0; i < innerList.size(); ++i) {
-                int currStatLen = innerList.get(i).length();
+                int currStatLen = innerList.get(i).length() + additionalSpace;
                 if(currStatLen > columnsLen.get(i)) {
                     columnsLen.set(i, currStatLen);
                 }

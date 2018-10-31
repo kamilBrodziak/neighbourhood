@@ -1,11 +1,9 @@
 package neighbourhood.models.containers;
 
-import neighbourhood.models.Community;
-
 import java.util.HashMap;
 import java.util.Map;
 
-public class Communities<T> {
+public abstract class Communities<T> {
     public Map<String, T> communityMap;
     static int id = 0;
 

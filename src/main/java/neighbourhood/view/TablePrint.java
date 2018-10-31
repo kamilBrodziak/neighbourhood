@@ -6,18 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Statistics {
+public class TablePrint {
     private static final int OUTER_FRAMES_AMOUNT = 2;
 
-    public static void showStatistics(List<ArrayList<String>> rows, ArrayList<String> tableHeaders) {
+    public static void showTable(List<ArrayList<String>> rows, ArrayList<String> tableHeaders) {
         Tools.clearScreen();
         if(rows.size() == 0) {
             System.out.println("No records found.");
             return;
         }
 
-        int statisticsColAmount = rows.get(0).size();
-        int headersColAmount = tableHeaders.size();
         ArrayList<ArrayList<String>> rowsToAnalyze = new ArrayList<>(rows);
         if(rows.get(0).size() == tableHeaders.size()) {
             rowsToAnalyze.add(tableHeaders);
@@ -87,9 +85,9 @@ public class Statistics {
         int rowSize = row.size();
         for(int i = 0; i < rowSize; ++i) {
             if(rowSize == 2 && i == 0)
-                System.out.print("█" + Tools.rightAllignString(row.get(i), columnsLength.get(i)));
+                System.out.print("█" + Tools.rightAllignString(" " + row.get(i) + " ", columnsLength.get(i)));
             else if(rowSize == 2 && i == 1) {
-                System.out.print("█" + Tools.leftAllignString(row.get(i), columnsLength.get(i)));
+                System.out.print("█" + Tools.leftAllignString(" " + row.get(i) + " ", columnsLength.get(i)));
             } else {
                 System.out.print("█" + Tools.centerString(row.get(i), columnsLength.get(i)));
             }

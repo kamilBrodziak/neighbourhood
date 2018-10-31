@@ -25,6 +25,6 @@ public class Search {
         headers.add("LOCATION");
         headers.add("TYPE");
 
-        Statistics.showStatistics(searched, headers);
+        TablePrint.showTable(searched, headers);
     }
 }

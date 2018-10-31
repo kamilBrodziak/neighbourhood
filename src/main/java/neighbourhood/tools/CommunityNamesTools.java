@@ -6,8 +6,8 @@ import neighbourhood.models.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class CommunityNamesTools {
     Map<String, CommunityEnum> communityNameMap;
@@ -25,7 +25,7 @@ public class CommunityNamesTools {
 
         Map<String, Village> villageMap = unitController.getVillController().getVillageMap();
         for(String name: cityMap.keySet()) {
-            communityNameMap.put(name, cityMap.get(name).getCommunityType());
+            communityNameMap.put(name, villageMap.get(name).getCommunityType());
         }
 
         Map<String, UrbanCommune> urbanCommuneMap = unitController.getCommController().getUrbanCommuneMap();
@@ -79,4 +79,18 @@ public class CommunityNamesTools {
         return searched;
     }
 
+    public static ArrayList<String> searchForLongestString(Set<String> strings) {
+        int length = 0;
+        ArrayList<String> stringArrayList = new ArrayList<>();
+        for(String string: strings) {
+            if(length < string.length()) {
+                length = string.length();
+                stringArrayList = new ArrayList<>();
+                stringArrayList.add(string);
+            } else if( length == string.length()) {
+                stringArrayList.add(string);
+            }
+        }
+        return stringArrayList;
+    }
 }

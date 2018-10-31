@@ -7,10 +7,11 @@ import neighbourhood.models.containers.VillageCommunes;
 import java.util.Map;
 
 public class CountyCity extends Community {
-    private String voivodeshipName;
     private UrbanCommunes urbanCommunes;
     private UrbVillCommunes urbVillCommunes;
     private VillageCommunes villageCommunes;
+
+    private String voivodeshipName;
 
     public CountyCity(Builder builder) {
         super(builder._name, CommunityEnum.COUNTYCITY);
